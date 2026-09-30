@@ -1,10 +1,17 @@
-## Compatibility channels
+## Релизы и совместимость
 
-`android16`: last Kokuban KMI generation 5 base (6.12.23, `fbf29d15b`) with Picters features and frequency fixes. A device boot test is required before release.
+| Канал | База | Ядро | Модули и менеджер |
+| --- | --- | --- | --- |
+| **A16 · `android16`** | Linux 6.12.23 / KMI 5 | `A16-Kernel.zip` | `A16-OOTMODULES.zip` |
+| **A17 · `android17`** | Linux 6.12.69 / KMI 6, экспериментальный | `A17-Kernel.zip` | `A17-OOTMODULES.zip` |
 
-`android17`: experimental KMI generation 6 base (6.12.69). Android 17 support is unverified; it failed to boot the Android 16 firmware tested by Picters. Artifacts only, no releases.
+Оба канала используют только ReSukiSU. Поддержка Android 17 новой базой не подтверждена: на Android 16 / OS3.0.315.0.WPCCNXM она не загрузилась. Совместимость определяется также vendor-модулями, а не только версией Android.
 
-The manager must match an explicitly validated vendor fingerprint; Android version alone does not establish module compatibility.
+**Скачивайте оба архива из одного релиза своего канала.** Установите ядро и загрузите телефон, затем установите соответствующий OOT-пакет через KernelSU/Magisk и перезагрузитесь. Пакет проверяет точную строку ядра; его boot-service не загружает драйверы при смене ядра.
+
+В каждом OOT-пакете находится подписанный Picters Modules Manager **1.3.2** с фиксами частот. Менеджер только показывает новые релизы и открывает GitHub: скачивание, установка APK/ZIP и прошивка ядра из приложения удалены. Старый менеджер 1.3.1 новые имена архивов не распознаёт.
+
+Workflow собирает каждый канал отдельно и сохраняет архивы, SHA-256, отчёт KMI и описание установки в артефактах. Релизы публикуются только после отдельного разрешения и проверки совместимости.
 
 <div align="center">
 
