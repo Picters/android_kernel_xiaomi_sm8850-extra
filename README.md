@@ -1,3 +1,11 @@
+## Compatibility channels
+
+`android16`: last Kokuban KMI generation 5 base (6.12.23, `fbf29d15b`) with Picters features and frequency fixes. A device boot test is required before release.
+
+`android17`: experimental KMI generation 6 base (6.12.69). Android 17 support is unverified; it failed to boot the Android 16 firmware tested by Picters. Artifacts only, no releases.
+
+The manager must match an explicitly validated vendor fingerprint; Android version alone does not establish module compatibility.
+
 <div align="center">
 
 <img src="assets/logo.jpg" alt="Picters kernel" width="640">

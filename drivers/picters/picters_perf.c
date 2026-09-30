@@ -40,7 +40,7 @@ struct picters_cap {
 };
 
 static DEFINE_MUTEX(picters_lock);
-static struct picters_cap *picters_caps;	/* indexed by policy->cpu */
+static struct picters_cap *picters_caps;	/* indexed by first related CPU (stable across hotplug) */
 static char picters_profile[PICTERS_PROFILE_LEN] = "full";
 static struct kobject *picters_kobj;
 
@@ -66,11 +66,10 @@ static int picters_set_cap(unsigned int cpu, unsigned int khz)
 
 	if (cpu >= nr_cpu_ids)
 		return -EINVAL;
-	c = &picters_caps[cpu];
-
 	policy = cpufreq_cpu_get(cpu);
 	if (!policy)
 		return -ENODEV;
+	c = &picters_caps[cpumask_first(policy->related_cpus)];
 
 	mutex_lock(&picters_lock);
 
@@ -118,7 +117,7 @@ static int picters_policy_notifier(struct notifier_block *nb,
 
 	if (!policy || policy->cpu >= nr_cpu_ids)
 		return NOTIFY_DONE;
-	c = &picters_caps[policy->cpu];
+	c = &picters_caps[cpumask_first(policy->related_cpus)];
 
 	mutex_lock(&picters_lock);
 	switch (event) {
@@ -156,7 +155,7 @@ static ssize_t available_show(struct kobject *kobj,
 		if (!policy)
 			continue;
 		/* One line per policy, keyed by the CPU that leads it. */
-		if (policy->cpu == cpu)
+		if (cpumask_first(policy->related_cpus) == cpu)
 			len += sysfs_emit_at(buf, len, "%u:%u\n", cpu,
 					     policy->cpuinfo.max_freq);
 		cpufreq_cpu_put(policy);
@@ -195,7 +194,7 @@ static ssize_t cpu_max_freq_store(struct kobject *kobj,
 
 	while (*p) {
 		unsigned int cpu, khz;
-		int consumed = 0;
+		int ret, consumed = 0;
 
 		while (*p == ' ' || *p == '\t' || *p == '\n' || *p == ',')
 			p++;
@@ -204,8 +203,14 @@ static ssize_t cpu_max_freq_store(struct kobject *kobj,
 		if (sscanf(p, "%u:%u%n", &cpu, &khz, &consumed) != 2)
 			return -EINVAL;
 		p += consumed;
+		if (*p && *p != ' ' && *p != '\t' &&
+		    *p != '\n' && *p != ',')
+			return -EINVAL;
 
-		if (picters_set_cap(cpu, khz) == 0)
+		ret = picters_set_cap(cpu, khz);
+		if (ret && ret != -ENODEV)
+			return ret;
+		if (!ret)
 			applied++;
 	}
 

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "channel": "android16",
+  "kmi_generation": 5,
+  "android_sdk": 36,
+  "validated_vendor_fingerprints": [],
+  "upstream_commit": "fbf29d15b",
+  "status": "awaiting-device-test"
+}
