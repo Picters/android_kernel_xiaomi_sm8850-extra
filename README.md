@@ -1,3 +1,7 @@
+## Experimental KMI6 channel
+
+Android 17 support is unverified. This 6.12.69 base failed to boot Picters Android 16 firmware. Artifacts only; use `android16` for the KMI5 base and test it before any release.
+
 <div align="center">
 
 <img src="assets/logo.jpg" alt="Picters kernel" width="640">

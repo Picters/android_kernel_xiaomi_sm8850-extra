@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "channel": "android17",
+  "kmi_generation": 6,
+  "android_sdk": null,
+  "validated_vendor_fingerprints": [],
+  "upstream_commit": "a0aeb9106",
+  "status": "experimental-unverified"
+}
