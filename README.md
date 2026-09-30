@@ -2,8 +2,8 @@
 
 | Канал | База | Ядро | Модули и менеджер |
 | --- | --- | --- | --- |
-| **A16 · `android16`** | Linux 6.12.23 / KMI 5 | `A16-Kernel.zip` | `A16-OOTMODULES.zip` |
-| **A17 · `android17`** | Linux 6.12.69 / KMI 6, экспериментальный | `A17-Kernel.zip` | `A17-OOTMODULES.zip` |
+| **A16 · `android16`** | Linux 6.12.23 / KMI 5 | `Mi17_Kernel-6.12.23-android16-…-YYYYMMDD-HHMM.zip` | `Mi17_OOTMODULES-6.12.23-android16-…-YYYYMMDD-HHMM.zip` |
+| **A17 · `android17`** | Linux 6.12.69 / KMI 6, экспериментальный | `Mi17_Kernel-6.12.69-android17-…-YYYYMMDD-HHMM.zip` | `Mi17_OOTMODULES-6.12.69-android17-…-YYYYMMDD-HHMM.zip` |
 
 Оба канала используют только ReSukiSU. Поддержка Android 17 новой базой не подтверждена: на Android 16 / OS3.0.315.0.WPCCNXM она не загрузилась. Совместимость определяется также vendor-модулями, а не только версией Android.
 
