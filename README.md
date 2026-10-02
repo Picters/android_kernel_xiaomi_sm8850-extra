@@ -6,7 +6,7 @@
 
 A custom Android 16 kernel for the Xiaomi Mi 17 (sm8850, "Pudding"), focused on first-class support for external USB Wi-Fi. 📡
 
-`6.12.23-android16` &nbsp;•&nbsp; ReSukiSU (KernelSU) &nbsp;•&nbsp; SUSFS &nbsp;•&nbsp; out-of-tree USB Wi-Fi
+`6.12.23-android16` / `6.12.69-android17` &nbsp;•&nbsp; ReSukiSU (KernelSU) &nbsp;•&nbsp; SUSFS &nbsp;•&nbsp; out-of-tree USB Wi-Fi
 
 </div>
 
@@ -34,6 +34,13 @@ Picters Kernel extends the stock Android 16 kernel with proper support for exter
 
 ## Installation
 
+| Channel | Kernel | Matching modules |
+| --- | --- | --- |
+| A16 · KMI 5 | `Mi17_Kernel-6.12.23-android16-…zip` | `Mi17_OOTMODULES-6.12.23-android16-…zip` |
+| A17 · KMI 6 | `Mi17_Kernel-6.12.69-android17-…zip` | `Mi17_OOTMODULES-6.12.69-android17-…zip` |
+
+Install only the pair for your Android version; the A17 kernel and app have not been tested on Android 17 firmware.
+
 1. Download the latest build from the [Releases](../../releases) page. Each build ships two archives:
    - `Mi17_Kernel-…zip` — the kernel (AnyKernel3).
    - `Mi17_OOTMODULES-…zip` — the drivers and the companion app.
@@ -49,7 +56,7 @@ Picters Kernel extends the stock Android 16 kernel with proper support for exter
 
 | | |
 |---|---|
-| **Base** | Android 16 GKI · KMI 5 · Linux 6.12.23 · Xiaomi sm8850 |
+| **Base** | A16: Linux 6.12.23 / KMI 5 · A17: Linux 6.12.69 / KMI 6 · Xiaomi sm8850 |
 | **Root** | ReSukiSU (KernelSU) + SUSFS |
 | **Wi-Fi injection** | `88XXau` (RTL8812AU), `88x2bu` (RTL8812BU), `8814au`, `8188eus` — patched for Linux 6.12 (no UBSAN panics, correct cfg80211 hand-off) |
 | **Additional drivers** | CAN, DVB-T / RTL-SDR, USB-serial (CP210x / CH341 / FTDI / PL2303) |

@@ -1,7 +1,7 @@
 name: Build Kernel
 on:
   push:
-    branches: [ android16 ]
+    branches: [ android16, android17 ]
   workflow_dispatch:
 
 permissions:
