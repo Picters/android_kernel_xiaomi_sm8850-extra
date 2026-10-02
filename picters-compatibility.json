@@ -5,5 +5,6 @@
   "android_sdk": 36,
   "validated_vendor_fingerprints": [],
   "upstream_commit": "fbf29d15b",
-  "status": "awaiting-device-test"
+  "status": "boot-tested",
+  "boot_test_vendor_fingerprint": "Xiaomi/pudding/pudding:16/BQ2A.250705.001-BP2A.250605.031.A3/OS3.0.315.0.WPCCNXM:user/release-keys"
 }
