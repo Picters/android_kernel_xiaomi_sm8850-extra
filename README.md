@@ -19,9 +19,18 @@ Custom kernel for Xiaomi 17 (`pudding`, SM8850) with external USB Wi-Fi support.
 | **A16 · `android16`** | Linux 6.12.23 / KMI 5 | `Mi17_Kernel-6.12.23-android16-…zip` |
 | **A17 · `android17`** | Linux 6.12.69 / KMI 6 · experimental | `Mi17_Kernel-6.12.69-android17-…zip` |
 
-Download the **kernel and OOT modules from the same release/channel**.
+**Install strictly for your Android version: A16 for Android 16, A17 for Android 17. Never mix channels.**
 
-Android 17 compatibility is experimental and also depends on Xiaomi vendor modules.
+| Your Android version | Download the matching pair |
+| --- | --- |
+| **Android 16 only** | [A16 — Kernel + OOTMODULES](https://github.com/Picters/android_kernel_xiaomi_sm8850-extra/releases/tag/A16-20261003-0027) |
+| **Android 17 only — Kernel not tested** | [A17 — Kernel + OOTMODULES](https://github.com/Picters/android_kernel_xiaomi_sm8850-extra/releases/tag/A17-20261003-0027) |
+
+**A17 Kernel not tested. The Android 17 kernel and bundled Picters Modules Manager 1.3.2 have not been tested on Android 17 firmware. Android 17 vendor-module CRC compatibility has not been verified. Booting and app/module functionality on A17 are not confirmed.**
+
+The A16 kernel has been boot-tested on Xiaomi 17 with HyperOS OS3.0.315.0.WPCCNXM (Android 16). The A17 base did not boot on that Android 16 firmware; do not install A17 on A16.
+
+Each release contains only its own kernel and matching OOT modules, including the signed manager APK.
 
 ---
 
@@ -39,12 +48,13 @@ Android 17 compatibility is experimental and also depends on Xiaomi vendor modul
 
 ## Installation
 
-1. Download `Mi17_Kernel-…zip` and the matching `Mi17_OOTMODULES-…zip`.
-2. Flash the kernel and reboot.
-3. Install the OOT package through KernelSU/Magisk.
-4. Reboot again.
+1. Check your Android version in Settings. Open the **A16 release for Android 16** or **A17 release for Android 17**.
+2. Download `Mi17_Kernel-…zip` and the matching `Mi17_OOTMODULES-…zip` from that same release.
+3. Flash the kernel and reboot.
+4. Install the OOT package through KernelSU/Magisk.
+5. Reboot again.
 
-The OOT package checks the exact kernel version and will not load drivers with an incompatible kernel.
+The installers reject the wrong Android version before proceeding. The OOT package also checks the exact running kernel version and will not load drivers with an incompatible kernel. A matching Android version does not prove A17 vendor compatibility.
 
 ---
 
