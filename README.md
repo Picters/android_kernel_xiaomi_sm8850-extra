@@ -39,7 +39,7 @@ Picters Kernel extends the GKI kernel with proper support for external USB Wi-Fi
 | A16 · KMI 5 | `Mi17_Kernel-6.12.23-android16-…zip` | `Mi17_OOTMODULES-6.12.23-android16-…zip` |
 | A17 · KMI 6 | `Mi17_Kernel-6.12.69-android17-…zip` | `Mi17_OOTMODULES-6.12.69-android17-…zip` |
 
-Install only the pair for your Android version; the A17 kernel and app have not been tested on Android 17 firmware.
+Install only the pair for your Android version.
 
 1. Download the latest build from the [Releases](../../releases) page. Each build ships two archives:
    - `Mi17_Kernel-…zip` — the kernel (AnyKernel3).
